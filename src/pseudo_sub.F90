@@ -882,10 +882,10 @@ CONTAINS
     ! there are 2L+1 M orbitals and each contains 2 electrons
     ! \alpha is the fine structure constant defined in globalmath
     lmb_tot = 0.0d0
-    do ib=1,AEOrbit%norbit
-      if (AEOrbit%iscore(ib)) then
-        CALL expinvr(Grid,AEOrbit%wfn(:,ib),lmb)
-        lmb_tot = lmb_tot + lmb*AEOrbit%occ(ib)
+    do ib=1,Orbit%norbit
+      if (Orbit%iscore(ib)) then
+        CALL expinvr(Grid,Orbit%wfn(:,ib),lmb)
+        lmb_tot = lmb_tot + lmb*Orbit%occ(ib)
       end if
     end do
     PAW%lambshielding = lmb_tot*fsalpha2/3.0d0
